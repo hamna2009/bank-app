@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: #bdb3b3;
+                font: Arial;
+                font-weight: bold;
+                text-align: center;
+                padding: 50px;
+            }
+            h1 {
+                color: #333;
+            }
+            label {
+                font-size: 20px;
+                margin-top: 20px;
+            }
+            input[type="number"] {
+                width: 200px;
+                padding: 10px;
+                border-radius: 5px;
+                margin-top: 10px;
+                border: 1px solid #ccc;
+            }
+            button {
+                background-color: #4CAF50;
+                border: 2px solid #042906;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                font-size: 16px;
+                border-radius: 10px;
+                margin: 20px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+     <center><h1><u>BANK APP</u></h1></center>
+     <form name="f1">
+     <label>Enter Income:</label><br>
+     <input type="number" name="f2" required><br><br>
+     <label>Enter Transaction Amount:</label><br>
+     <input type="number" name="f3" required><br><br>
+     </form>
+     <button onclick="credit()">Credit</button>
+     <button onclick="debit()">Debit</button>
+     <p id="result"></p>
+     <script>
+     function credit() {
+        var a = Number(document.forms["f1"]["f2"].value);
+         var b = Number(document.forms["f1"]["f3"].value);
+        document.getElementById("result").innerHTML = "Your balance is: " + (a+b);
+     }
+     function debit() {
+        var a = Number(document.forms["f1"]["f2"].value);
+         var b = Number(document.forms["f1"]["f3"].value);
+            document.getElementById("result").innerHTML = "Your balance is: " + (a-b);
+        }
+    </script>
+    </body>
+    </html>
