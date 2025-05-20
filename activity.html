@@ -48,16 +48,46 @@
      <button onclick="debit()">Debit</button>
      <p id="result"></p>
      <script>
-     function credit() {
-        var a = Number(document.forms["f1"]["f2"].value);
-         var b = Number(document.forms["f1"]["f3"].value);
-        document.getElementById("result").innerHTML = "Your balance is: " + (a+b);
-     }
-     function debit() {
-        var a = Number(document.forms["f1"]["f2"].value);
-         var b = Number(document.forms["f1"]["f3"].value);
-            document.getElementById("result").innerHTML = "Your balance is: " + (a-b);
-        }
+      function credit() {
+            var a = document.forms["f1"]["f2"].value;
+            var b = document.forms["f1"]["f3"].value;
+
+            if (a == "" || b == "") {
+                alert("Complete the fields");
+                return; }
+            a = Number(a);
+            b = Number(b);
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Enter numbers only");
+                return; }
+           else if (a <= 0 || b <= 0) {
+                alert("Enter amount greater than zero");
+                return; }
+document.getElementById("result").innerHTML = "Your balance is: " + (a + b); }
+
+        function debit() {
+            var a = document.forms["f1"]["f2"].value;
+            var b = document.forms["f1"]["f3"].value;
+
+            if (a == "" || b == "") {
+                alert("Complete the fields");
+                return; }
+            a = Number(a);
+            b = Number(b);
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Enter numbers only");
+                return; }
+          else if (a <= 0 || b <= 0) {
+                alert("Enter amount greater than zero");
+                return; }
+          else if (b > a) {
+                alert("You cannot withdraw more than your Income");
+                return; }
+
+            document.getElementById("result").innerHTML = "Your balance is: " + (a - b); }
     </script>
     </body>
     </html>
+         
